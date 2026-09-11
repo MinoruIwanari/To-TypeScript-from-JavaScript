@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        async function load() {
+            try {
+                const response = await fetch('news.json');
+                const json = await response.json();
+
+                // if (json.length < 4) {
+                //     throw new Error('件数が少なすぎます');
+                // }
+
+                let html = '<ul>';
+                for (let item of json) {
+                    html += '<li><a href="' +
+                        item.link + '">' +
+                        item.date + ' ' +
+                        item.title + '</a></li>';
+                }
+                html += '</ul>';
+
+                document.querySelector('.container').innerHTML = html;
+            } catch (error) {
+                document.querySelector('.container').innerHTML = error;
+            }
+        }
+        load();
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+
+    <script>
+        const prefs = [
+            '北海道',
+            '青森県',
+            '岩手県',
+            '宮城県',
+            '秋田県',
+            '山形県'
+        ];
+
+
+        // for (let i=0; i<prefs.length; i++) {
+        //     document.write(prefs[i] + '<br>');
+        // }
+
+        // for (pref of prefs) {
+        //     document.write(pref + '<br>');
+        // }
+
+        // prefs.push('秋田県', '山形県');
+        // prefs.unshift('あいうえお');
+        // prefs.pop();
+        // prefs.pop();
+        // prefs.shift();
+
+        //prefs[0] = 'ほっかいどう';
+        //prefs.splice(1, 2);
+
+        let html = '<select name="pref" id="pref">';
+        prefs.forEach((pref, index) => {
+            html += '<option value="' +
+                pref +
+                '">' + pref + '</option>';
+        });
+        html += '</select>';
+        document.querySelector('.container').innerHTML = html;
+    </script>
+</body>
+</html>

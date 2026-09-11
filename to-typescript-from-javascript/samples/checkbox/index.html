@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <div>
+            <label>
+                <input type="checkbox" name="agree" id="agree">
+                同意する
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="privacy" id="privacy">
+                個人情報保護方針に同意する
+            </label>
+        </div>
+        <div>
+            <button type="submit">送信</button>
+        </div>
+    </form>
+
+    <script>
+        const button = document.querySelector('form button');
+        const checkbox = document.querySelector('#agree');
+        const privacy = document.querySelector('#privacy');
+
+        button.disabled = true;
+        checkbox.addEventListener('change', () => {
+            // もしチェックボックスのチェックがついていたら、ボタンを有効にし、ついていなければ無効にする
+            if (checkbox.checked === true && privacy.checked === true) {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+            }
+            // button.disabled = !checkbox.checked;
+        });
+    </script>
+</body>
+</html>
